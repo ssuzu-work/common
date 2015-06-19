@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -ue -o pipefail
+export LC_ALL=C
+
+cmd=$(basename $0)
+case $cmd in
+  "v")
+    vim -N -u ${HOME}/ssuzu/.vimrc "$@"
+    ;;
+  "l")
+    ls -al "$@"
+    ;;
+  "p")
+    sudo ps -aef
+    ;;
+  *)
+    exit 0
+esac
